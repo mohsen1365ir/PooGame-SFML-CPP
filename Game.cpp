@@ -18,12 +18,12 @@ void Game::loop()
 {
     // sf::CircleShape shape(100.f);
     // shape.setFillColor(sf::Color::Green);
-    Poo poo,poo1;
+    Poo poo,poo1(100,100);
 
     while (window.isOpen())
     {
         poo.move(1,1);
-        poo1.move(2,2);
+        poo1.move(1,2);
         sf::Event event;
         while (window.pollEvent(event))
         {
@@ -33,8 +33,8 @@ void Game::loop()
 
         window.clear();
         // window.draw(shape);
-        window.draw(poo.pooSP);
-        window.draw(poo1.pooSP);
+        window.draw(poo);
+        window.draw(poo1);
         window.display();
     }
 }

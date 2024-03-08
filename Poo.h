@@ -2,12 +2,11 @@
 
 #include <SFML/Graphics.hpp>
 
-class Poo
+class Poo: public sf::Sprite
 {
 private:
     sf::Texture image;
 public:
-    sf::Sprite pooSP;
     Poo();
-    void move(int, int);
+    Poo(int, int);
 };

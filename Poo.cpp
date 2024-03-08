@@ -3,10 +3,12 @@
 Poo::Poo()
 {
     image.loadFromFile("images/poo.png");
-    pooSP.setTexture(image);
-    pooSP.setScale(0.3,0.3);
+    this->setTexture(image);
+    this->setScale(0.3,0.3);
 }
 
-void Poo::move(int x, int y){
-    pooSP.move(x, y);
+Poo::Poo(int x, int y):Poo()
+{
+    this->setPosition(x, y);
 }
+
