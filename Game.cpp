@@ -5,6 +5,8 @@
 Game::Game(int x, int y): window(sf::VideoMode(x, y), "SFML works!")
 {
     window.setFramerateLimit(60);
+    Poo::width = x;
+    Poo::height = y;
 }
 
 void Game::init()
@@ -18,12 +20,12 @@ void Game::loop()
 {
     // sf::CircleShape shape(100.f);
     // shape.setFillColor(sf::Color::Green);
-    Poo poo,poo1(100,100);
+    Poo poo,poo1(700,350);
 
     while (window.isOpen())
     {
-        poo.move(1,1);
-        poo1.move(1,2);
+        poo.moveForward();
+        poo1.moveForward();
         sf::Event event;
         while (window.pollEvent(event))
         {
