@@ -7,7 +7,8 @@ private:
     sf::RenderWindow window;
 
 public:
-    Game();
+    Game(int, int);
     void init();
     void loop();
+    sf::Vector2u getSize();
 };
