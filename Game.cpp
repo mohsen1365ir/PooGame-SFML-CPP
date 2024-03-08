@@ -5,8 +5,8 @@
 Game::Game(int width, int height): window(sf::VideoMode(width, height), "SFML works!")
 {
     window.setFramerateLimit(60);
-    Poo::width = width;
-    Poo::height = height;
+    Poo::screenWidth = width;
+    Poo::screenHeight = height;
 }
 
 
