@@ -4,4 +4,4 @@ compile:
 	g++ -I"C:\\SFML-2.5.1\\include" -c *.cpp
 
 link:
-	g++ *.o -o main -L"C:\\SFML-2.5.1\\lib" -lsfml-graphics -lsfml-window -lsfml-system
+	g++ *.o -o ./exe/main -L"C:\\SFML-2.5.1\\lib" -lsfml-graphics -lsfml-window -lsfml-system
