@@ -1,5 +1,5 @@
 #include "Poo.h"
-#include <iostream>
+
 int Poo::screenWidth = 0;
 int Poo::screenHeight = 0;
 int Poo::width = 0;
