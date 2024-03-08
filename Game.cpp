@@ -1,22 +1,16 @@
-#include "Game.h"
 #include <SFML/Graphics.hpp>
+#include "Game.h"
 #include "Poo.h"
 
-Game::Game(int x, int y): window(sf::VideoMode(x, y), "SFML works!")
+Game::Game(int width, int height): window(sf::VideoMode(width, height), "SFML works!")
 {
     window.setFramerateLimit(60);
-    Poo::width = x;
-    Poo::height = y;
+    Poo::width = width;
+    Poo::height = height;
 }
 
-void Game::init()
-{
-    
 
-    
-}
-
-void Game::loop()
+void Game::run()
 {
     // sf::CircleShape shape(100.f);
     // shape.setFillColor(sf::Color::Green);
@@ -39,9 +33,4 @@ void Game::loop()
         window.draw(poo1);
         window.display();
     }
-}
-
-sf::Vector2u Game::getSize()
-{
-    return window.getSize();
 }

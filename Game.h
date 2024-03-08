@@ -1,4 +1,5 @@
 #pragma once
+
 #include <SFML/Graphics.hpp>
 
 class Game
@@ -8,7 +9,5 @@ private:
 
 public:
     Game(int, int);
-    void init();
-    void loop();
-    sf::Vector2u getSize();
+    void run();
 };
