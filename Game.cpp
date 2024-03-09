@@ -29,6 +29,8 @@ void Game::run()
 
         window.clear();
         // window.draw(shape);
+        window.draw(poo.trace);
+        window.draw(poo1.trace);
         window.draw(poo);
         window.draw(poo1);
         window.display();

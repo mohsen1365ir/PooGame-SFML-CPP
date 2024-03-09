@@ -35,6 +35,7 @@ void Poo::moveForward()
     x += xSpeed;
     y += ySpeed;
     this->setPosition(x,y);
+    trace.append(sf::Vector2f(x,y));
 }
 
 sf::Vector2u Poo::getCenterPosition() const
