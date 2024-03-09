@@ -16,5 +16,5 @@ public:
     Poo();
     Poo(int, int);
     void moveForward();
-    sf::Vector2u getCenterPosition() const;
+    sf::Vector2f getCenterPosition() const;
 };

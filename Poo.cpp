@@ -35,11 +35,11 @@ void Poo::moveForward()
     x += xSpeed;
     y += ySpeed;
     this->setPosition(x,y);
-    trace.append(sf::Vector2f(x,y));
+    trace.append(getCenterPosition());
 }
 
-sf::Vector2u Poo::getCenterPosition() const
+sf::Vector2f Poo::getCenterPosition() const
 {
-    return sf::Vector2u(static_cast<int>(x+Poo::width/2), static_cast<int>(y+Poo::height/2));
+    return sf::Vector2f(static_cast<int>(x+Poo::width/2), static_cast<int>(y+Poo::height/2));
 }
 
