@@ -36,3 +36,9 @@ void Poo::moveForward()
     y += ySpeed;
     this->setPosition(x,y);
 }
+
+sf::Vector2u Poo::getCenterPosition() const
+{
+    return sf::Vector2u(static_cast<int>(x+Poo::width/2), static_cast<int>(y+Poo::height/2));
+}
+
