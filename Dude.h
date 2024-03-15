@@ -18,4 +18,5 @@ public:
     Dude(int, int);
     void moveForward();
     sf::Vector2f getCenterPosition() const;
+    void update();
 };

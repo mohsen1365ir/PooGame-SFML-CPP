@@ -14,7 +14,7 @@ Dude::Dude()
     this->y = rand()%400 + 1;
     this->xSpeed = (rand()%10)/5.0f-1;
     this->ySpeed = (rand()%10)/5.0f-1;
-    std::cout << this->xSpeed <<" " << this->ySpeed << std::endl; 
+    // std::cout << this->xSpeed <<" " << this->ySpeed << std::endl; 
     image.loadFromFile("images/dude.png");
     this->setTexture(image);
     this->setScale(0.3,0.3);
@@ -50,3 +50,22 @@ sf::Vector2f Dude::getCenterPosition() const
     return sf::Vector2f(static_cast<int>(x+Dude::width/2), static_cast<int>(y+Dude::height/2));
 }
 
+void Dude::update()
+{
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+    {
+        this->move(0,-1);
+    }
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+    {
+        this->move(0,1);
+    }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+    {
+        this->move(-1,0);
+    }
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+    {
+        this->move(1,0);
+    }
+}

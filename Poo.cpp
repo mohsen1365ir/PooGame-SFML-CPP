@@ -14,7 +14,7 @@ Poo::Poo()
     this->y = rand()%400 + 1;
     this->xSpeed = (rand()%10)/5.0f-1;
     this->ySpeed = (rand()%10)/5.0f-1;
-    std::cout << this->xSpeed <<" " << this->ySpeed << std::endl; 
+    // std::cout << this->xSpeed <<" " << this->ySpeed << std::endl; 
     image.loadFromFile("images/poo.png");
     this->setTexture(image);
     this->setScale(0.3,0.3);
