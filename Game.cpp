@@ -1,12 +1,15 @@
 #include <SFML/Graphics.hpp>
 #include "Game.h"
 #include "Poo.h"
+#include "Dude.h"
 
 Game::Game(int width, int height): window(sf::VideoMode(width, height), "SFML works!")
 {
     window.setFramerateLimit(60);
     Poo::screenWidth = width;
     Poo::screenHeight = height;
+    Dude::screenWidth = width;
+    Dude::screenHeight = height;
 }
 
 
@@ -22,6 +25,7 @@ void Game::run()
         {
             poos[i].moveForward();
         }
+        
         // poo.moveForward();
         // poo1.moveForward();
         sf::Event event;
@@ -38,6 +42,7 @@ void Game::run()
             // window.draw(poos[i].trace);
             window.draw(poos[i]);
         }
+        window.draw(dude);
         // window.draw(poo.trace);
         // window.draw(poo1.trace);
         // window.draw(poo);
