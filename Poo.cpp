@@ -1,13 +1,20 @@
 #include "Poo.h"
-
+#include <stdlib.h>
+#include <time.h>
+#include <iostream>
 int Poo::screenWidth = 0;
 int Poo::screenHeight = 0;
 int Poo::width = 0;
 int Poo::height = 0;
 bool Poo::isSetWidthHeight = false;
 
-Poo::Poo():x{0},y{0}
+Poo::Poo()
 {
+    this->x = rand()%800 + 1;
+    this->y = rand()%400 + 1;
+    this->xSpeed = (rand()%10)/5.0f-1;
+    this->ySpeed = (rand()%10)/5.0f-1;
+    std::cout << this->xSpeed <<" " << this->ySpeed << std::endl; 
     image.loadFromFile("images/poo.png");
     this->setTexture(image);
     this->setScale(0.3,0.3);
@@ -28,8 +35,8 @@ Poo::Poo(int x, int y):Poo()
 
 void Poo::moveForward()
 {
-    if(x+Poo::width>=Poo::screenWidth && xSpeed > 0) xSpeed *= -1;
-    if(y+Poo::height>=Poo::screenHeight && ySpeed > 0) ySpeed *= -1;
+    if(x+Poo::width>=Poo::screenWidth && xSpeed > 0.f) xSpeed *= -1;
+    if(y+Poo::height>=Poo::screenHeight && ySpeed > 0.f) ySpeed *= -1;
     if(x<=0 && xSpeed < 0) xSpeed *= -1;
     if(y<=0 && ySpeed < 0) ySpeed *= -1;
     x += xSpeed;

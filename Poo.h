@@ -6,7 +6,8 @@ class Poo: public sf::Sprite
 {
 private:
     sf::Texture image;
-    int x,y,xSpeed{1},ySpeed{1};
+    float x,y;
+    float xSpeed,ySpeed;
 public:
     sf::VertexArray trace;
     static int screenWidth,screenHeight;
