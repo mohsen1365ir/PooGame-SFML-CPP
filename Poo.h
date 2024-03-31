@@ -19,8 +19,8 @@ public:
     Poo(int, int);
     void moveForward();
     sf::Vector2f getCenterPosition() const;
-    float getX();
-    float getY();
+    float getX() const;
+    float getY() const;
     void setIsEaten(bool);
-    void draw(sf::RenderWindow &);
+    void draw(sf::RenderWindow &) const;
 };

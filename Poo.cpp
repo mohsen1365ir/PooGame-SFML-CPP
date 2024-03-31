@@ -53,12 +53,12 @@ sf::Vector2f Poo::getCenterPosition() const
     return sf::Vector2f(static_cast<int>(x+Poo::width/2), static_cast<int>(y+Poo::height/2));
 }
 
-float Poo::getX()
+float Poo::getX() const
 {
     return x;
 }
 
-float Poo::getY()
+float Poo::getY() const
 {
     return y;
 }
@@ -68,7 +68,7 @@ void Poo::setIsEaten(bool eatenState)
     isEaten = eatenState;
 }
 
-void Poo::draw(sf::RenderWindow &window)
+void Poo::draw(sf::RenderWindow &window) const
 {
     if(!isEaten)
         window.draw(*this);

@@ -34,7 +34,7 @@ Dude::Dude(int x, int y):Dude()
     this->y = y;
 }
 
-bool Dude::isColliding(Poo poo)
+bool Dude::isColliding(Poo poo) const
 {
     float dRight = x + Dude::width, dBottom = y + Dude::height;
     float pRight = poo.getX() + Poo::width, pBottom = poo.getY() + Poo::height;
@@ -90,7 +90,7 @@ void Dude::update(Poo poos[10])
     }
 }
 
-void Dude::draw(sf::RenderWindow &window)
+void Dude::draw(sf::RenderWindow &window) const
 {
     window.draw(*this);
 }

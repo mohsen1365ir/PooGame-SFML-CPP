@@ -20,6 +20,6 @@ public:
     // void moveForward();
     // sf::Vector2f getCenterPosition() const;
     void update(Poo[]);
-    bool isColliding(Poo);
-    void draw(sf::RenderWindow &);
+    bool isColliding(Poo) const;
+    void draw(sf::RenderWindow &) const;
 };
