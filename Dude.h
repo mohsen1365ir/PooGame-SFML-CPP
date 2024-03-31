@@ -1,6 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
+#include "Poo.h"
 
 class Dude: public sf::Sprite
 {
@@ -16,7 +17,9 @@ public:
 public:
     Dude();
     Dude(int, int);
-    void moveForward();
-    sf::Vector2f getCenterPosition() const;
-    void update();
+    // void moveForward();
+    // sf::Vector2f getCenterPosition() const;
+    void update(Poo[]);
+    bool isColliding(Poo);
+    void draw(sf::RenderWindow &);
 };

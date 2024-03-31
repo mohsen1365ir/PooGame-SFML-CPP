@@ -8,6 +8,7 @@ private:
     sf::Texture image;
     float x,y;
     float xSpeed,ySpeed;
+    bool isEaten = false;
 public:
     sf::VertexArray trace;
     static int screenWidth,screenHeight;
@@ -18,4 +19,8 @@ public:
     Poo(int, int);
     void moveForward();
     sf::Vector2f getCenterPosition() const;
+    float getX();
+    float getY();
+    void setIsEaten(bool);
+    void draw(sf::RenderWindow &);
 };

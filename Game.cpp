@@ -27,14 +27,14 @@ void Game::run()
         }
 
         window.clear();
-        dude.update();
+        dude.update(poos);
         for(int i = 0; i < 10; i++)
         {
             // window.draw(poos[i].trace);
             poos[i].moveForward();
-            window.draw(poos[i]);
+            poos[i].draw(window);
         }
-        window.draw(dude);
+        dude.draw(window);
         window.display();
     }
 }

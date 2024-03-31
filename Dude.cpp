@@ -1,4 +1,5 @@
 #include "Dude.h"
+#include "Poo.h"
 #include <stdlib.h>
 #include <time.h>
 #include <iostream>
@@ -33,39 +34,64 @@ Dude::Dude(int x, int y):Dude()
     this->y = y;
 }
 
-void Dude::moveForward()
+bool Dude::isColliding(Poo poo)
 {
-    if(x+Dude::width>=Dude::screenWidth && xSpeed > 0.f) xSpeed *= -1;
-    if(y+Dude::height>=Dude::screenHeight && ySpeed > 0.f) ySpeed *= -1;
-    if(x<=0 && xSpeed < 0) xSpeed *= -1;
-    if(y<=0 && ySpeed < 0) ySpeed *= -1;
-    x += xSpeed;
-    y += ySpeed;
+    float dRight = x + Dude::width, dBottom = y + Dude::height;
+    float pRight = poo.getX() + Poo::width, pBottom = poo.getY() + Poo::height;
+    return dRight >= poo.getX() 
+    &&     pRight >= x
+    &&     dBottom >= poo.getY()
+    &&     pBottom >= y;
+}
+
+// void Dude::moveForward()
+// {
+//     if(x+Dude::width>=Dude::screenWidth && xSpeed > 0.f) xSpeed *= -1;
+//     if(y+Dude::height>=Dude::screenHeight && ySpeed > 0.f) ySpeed *= -1;
+//     if(x<=0 && xSpeed < 0) xSpeed *= -1;
+//     if(y<=0 && ySpeed < 0) ySpeed *= -1;
+//     x += xSpeed;
+//     y += ySpeed;
+//     this->setPosition(x,y);
+//     trace.append(getCenterPosition());
+// }
+
+// sf::Vector2f Dude::getCenterPosition() const
+// {
+//     return sf::Vector2f(static_cast<int>(x+Dude::width/2), static_cast<int>(y+Dude::height/2));
+// }
+
+void Dude::update(Poo poos[10])
+{
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up) && y>0)
+    {
+        y--;
+    }
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down) && (y+Dude::height<Dude::screenHeight))
+    {
+        y++;
+    }
+    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left) && x>0)
+    {
+        x--;
+    }
+    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right) && (x+Dude::width<Dude::screenWidth))
+    {
+        x++;
+    }
     this->setPosition(x,y);
-    trace.append(getCenterPosition());
+
+    for(int i=0; i < 10; i++)
+    {
+        if(isColliding(poos[i]))
+        {
+            poos[i].setIsEaten(true);
+        }
+    }
 }
 
-sf::Vector2f Dude::getCenterPosition() const
+void Dude::draw(sf::RenderWindow &window)
 {
-    return sf::Vector2f(static_cast<int>(x+Dude::width/2), static_cast<int>(y+Dude::height/2));
+    window.draw(*this);
 }
 
-void Dude::update()
-{
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-    {
-        this->move(0,-1);
-    }
-    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-    {
-        this->move(0,1);
-    }
-    if(sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-    {
-        this->move(-1,0);
-    }
-    else if(sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-    {
-        this->move(1,0);
-    }
-}
