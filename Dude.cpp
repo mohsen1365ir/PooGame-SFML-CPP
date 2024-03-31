@@ -34,7 +34,7 @@ Dude::Dude(int x, int y):Dude()
     this->y = y;
 }
 
-bool Dude::isColliding(Poo poo) const
+bool Dude::isColliding(const Poo &poo) const
 {
     float dRight = x + Dude::width, dBottom = y + Dude::height;
     float pRight = poo.getX() + Poo::width, pBottom = poo.getY() + Poo::height;
